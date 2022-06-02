@@ -101,6 +101,11 @@ var V5Bootnodes = []string{
 	"enr:-Ku4QEWzdnVtXc2Q0ZVigfCGggOVB2Vc1ZCPEc6j21NIFLODSJbvNaef1g4PxhPwl_3kax86YPheFUSLXPRs98vvYsoBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpC1MD8qAAAAAP__________gmlkgnY0gmlwhDZBrP2Jc2VjcDI1NmsxoQM6jr8Rb1ktLEsVcKAPa08wCsKUmvoQ8khiOl_SLozf9IN1ZHCCIyg",
 }
 
+var OctaMainnetBootnodes = []string{
+    "enode://d3fce049acb6d4b77a81e553ba842ade85d5e241ce5258182a6960adbcf0baf3ae1c1f71822330ade8fe6cffbe3f1b879a3a96a54a10d9a8cd1fb77b8bcba723@178.62.15.24:38000",
+    "enode://972eeb44600aa1abb4bb21e57ddf31808da7b013f92b0206e13359105e28f9b02a27d9b7d44275480ba67b9899a1f8c1491a7f026ddc6f0362a7a8862d1d67a6@178.62.175.149:38000",
+}
+
 const dnsPrefix = "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@"
 
 // KnownDNSNetwork returns the address of a public DNS-based node list for the given
