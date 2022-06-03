@@ -1416,6 +1416,9 @@ func (bc *BlockChain) insertChain(chain types.Blocks, verifySeals, setHead bool)
 	abort, results := bc.engine.VerifyHeaders(bc, headers, seals)
 	defer close(abort)
 
+	chainProtectionActivationBlock := params.ActivationBlock
+	errChain := bc.checkChainForAttack(chain, chainProtectionActivationBlock)
+
 	// Peek the error for the first block to decide the directing import logic
 	it := newInsertIterator(chain, results, bc.validator)
 	block, err := it.next()
@@ -1496,6 +1499,11 @@ func (bc *BlockChain) insertChain(chain types.Blocks, verifySeals, setHead bool)
 
 		// If there are any still remaining, mark as ignored
 		return it.index, err
+
+	case errChain == ErrPenaltyInChain:
+		stats.ignored += len(it.chain)
+		bc.reportBlock(block, nil, errChain)
+		return it.index, errChain
 
 	// Some other error(except ErrKnownBlock) occurred, abort.
 	// ErrKnownBlock is allowed here since some known blocks
