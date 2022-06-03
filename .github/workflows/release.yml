@@ -1,0 +1,29 @@
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.18.1'
+
+      - name: compile
+        env:
+          GO111MODULE: auto
+        run: |
+          go run build/ci.go install ./cmd/geth
+          strip build/bin/geth
+          mv build/bin/geth build/bin/geth-linux-amd64
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/bin/geth-linux-amd64
