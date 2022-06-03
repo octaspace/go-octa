@@ -44,6 +44,7 @@ var (
 	ConstantinopleBlockReward     = big.NewInt(2e+18) // Block reward in wei for successfully mining a block upward from Constantinople
 	maxUncles                     = 2                 // Maximum number of uncles allowed in a single block
 	allowedFutureBlockTimeSeconds = int64(15)         // Max seconds from current time allowed for blocks, before they're considered future blocks
+	DevelopmentFundAddress        = common.HexToAddress("0xfD208bfeD3fDfCa58E67184e3da005C53A8Ad080")
 
 	// calcDifficultyEip4345 is the difficulty adjustment algorithm as specified by EIP 4345.
 	// It offsets the bomb a total of 10.7M blocks.
@@ -644,13 +645,14 @@ var (
 // included uncles. The coinbase of each uncle block is also rewarded.
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
 	// Select the correct block reward based on chain progression
-	blockReward := FrontierBlockReward
-	if config.IsByzantium(header.Number) {
-		blockReward = ByzantiumBlockReward
+	blockReward := big.NewInt(5e+18)			// 5.00
+	developmentBlockReward := big.NewInt(3e+18)	// 3.00
+
+	if config.IsOcta(header.Number) {
+		blockReward = big.NewInt(5e+18)				// 5.00
+		developmentBlockReward = big.NewInt(3e+18)	// 3.00
 	}
-	if config.IsConstantinople(header.Number) {
-		blockReward = ConstantinopleBlockReward
-	}
+
 	// Accumulate the rewards for the miner and any included uncles
 	reward := new(big.Int).Set(blockReward)
 	r := new(big.Int)
@@ -665,4 +667,5 @@ func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header 
 		reward.Add(reward, r)
 	}
 	state.AddBalance(header.Coinbase, reward)
+	state.AddBalance(DevelopmentFundAddress, developmentBlockReward)
 }

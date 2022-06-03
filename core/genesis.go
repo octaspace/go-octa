@@ -242,7 +242,7 @@ func SetupGenesisBlockWithOverride(db ethdb.Database, genesis *Genesis, override
 	if (stored == common.Hash{}) {
 		if genesis == nil {
 			log.Info("Writing default main-net genesis block")
-			genesis = DefaultGenesisBlock()
+			genesis = OctaMainnetGenesisBlock()
 		} else {
 			log.Info("Writing custom genesis block")
 		}
@@ -326,6 +326,8 @@ func (g *Genesis) configOrDefault(ghash common.Hash) *params.ChainConfig {
 	switch {
 	case g != nil:
 		return g.Config
+	case ghash == params.OctaMainnetGenesisHash:
+		return params.OctaMainnetChainConfig
 	case ghash == params.MainnetGenesisHash:
 		return params.MainnetChainConfig
 	case ghash == params.RopstenGenesisHash:
@@ -501,6 +503,18 @@ func DefaultKilnGenesisBlock() *Genesis {
 		panic(err)
 	}
 	return g
+}
+
+func OctaMainnetGenesisBlock() *Genesis {
+	return &Genesis{
+		Config:     params.OctaMainnetChainConfig,
+		ExtraData:  hexutil.MustDecode("0x4f4354415350414345494e4954"),
+		GasLimit:   10400000,
+		Difficulty: big.NewInt(1_000_000_000), // 10 G
+		Timestamp:  1654041600, // June 1, 2022, 00:00:00
+		Nonce:      0,
+		Alloc:      nil,
+	}
 }
 
 // DeveloperGenesisBlock returns the 'geth --dev' genesis block.
