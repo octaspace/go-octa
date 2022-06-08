@@ -510,7 +510,7 @@ func OctaMainnetGenesisBlock() *Genesis {
 		Config:     params.OctaMainnetChainConfig,
 		ExtraData:  hexutil.MustDecode("0x4f4354415350414345494e4954"),
 		GasLimit:   10400000,
-		Difficulty: big.NewInt(1_000_000_000), // 10 G
+		Difficulty: big.NewInt(100_000_000_000), // 100 G
 		Timestamp:  1654041600, // June 1, 2022, 00:00:00
 		Nonce:      0,
 		Alloc:      nil,

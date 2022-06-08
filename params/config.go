@@ -33,7 +33,7 @@ var (
 	RinkebyGenesisHash     = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
 	GoerliGenesisHash	   = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
 	KilnGenesisHash		   = common.HexToHash("0x51c7fe41be669f69c45c33a56982cbde405313342d9e2b00d7c91a7b284dd4f8")
-	OctaMainnetGenesisHash = common.HexToHash("0x1d33b665853a1842465484d6cc34170c22bca9c6f74bb1b96377386cba6beacc")
+	OctaMainnetGenesisHash = common.HexToHash("0x4328489cccd9b8a33d4c5a63e813d883863e1ae1389a945b28b49d650f9227e9")
 )
 
 // TrustedCheckpoints associates each known checkpoint with the genesis hash of
