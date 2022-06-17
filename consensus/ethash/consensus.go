@@ -645,12 +645,12 @@ var (
 // included uncles. The coinbase of each uncle block is also rewarded.
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
 	// Select the correct block reward based on chain progression
-	blockReward := big.NewInt(5e+18)			// 5.00
-	developmentBlockReward := big.NewInt(3e+18)	// 3.00
+	blockReward := big.NewInt(650e+16)					// 6.50
+	developmentBlockReward := big.NewInt(150e+16)		// 1.50
 
 	if config.IsOcta(header.Number) {
-		blockReward = big.NewInt(5e+18)				// 5.00
-		developmentBlockReward = big.NewInt(3e+18)	// 3.00
+		blockReward = big.NewInt(650e+16)				// 6.50
+		developmentBlockReward = big.NewInt(150e+16)	// 1.50
 	}
 
 	// Accumulate the rewards for the miner and any included uncles
