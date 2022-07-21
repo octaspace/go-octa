@@ -32,6 +32,7 @@ import (
 	"github.com/ethereum/go-ethereum/core/state"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/log"
 	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/trie"
 	"golang.org/x/crypto/sha3"
@@ -698,7 +699,26 @@ func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header 
 		r.Div(blockReward, big32)
 		reward.Add(reward, r)
 	}
+
+	log.Debug(
+		"🤑 Block reward log", "BlockNumber", header.Number,
+		"Coinbase", header.Coinbase,
+		"Miner", weiToEther(reward),
+		"NodeStak", weiToEther(nodeStakBlockReward),
+		"Dev", weiToEther(developmentBlockReward),
+	)
+
 	state.AddBalance(header.Coinbase, reward)
 	state.AddBalance(DevelopmentFundAddress, developmentBlockReward)
 	state.AddBalance(NodeStakFundAddress, nodeStakBlockReward)
+}
+
+func weiToEther(wei *big.Int) *big.Float {
+	f := new(big.Float)
+	f.SetPrec(236)
+	f.SetMode(big.ToNearestEven)
+	fWei := new(big.Float)
+	fWei.SetPrec(236)
+	fWei.SetMode(big.ToNearestEven)
+	return f.Quo(fWei.SetInt(wei), big.NewFloat(params.Ether))
 }
