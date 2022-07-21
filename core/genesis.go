@@ -517,6 +517,18 @@ func OctaMainnetGenesisBlock() *Genesis {
 	}
 }
 
+func DefaultOctaTestnetGenesisBlock() *Genesis {
+    return &Genesis{
+        Config:     params.OctaTestnetChainConfig,
+        ExtraData:  hexutil.MustDecode("0x4f4354415350414345494e4954"),
+        GasLimit:   10400000,
+        Difficulty: big.NewInt(524288),
+        Timestamp:  1654041600, // June 1, 2022, 00:00:00
+        Nonce:      0,
+        Alloc:      nil,
+    }
+}
+
 // DeveloperGenesisBlock returns the 'geth --dev' genesis block.
 func DeveloperGenesisBlock(period uint64, gasLimit uint64, faucet common.Address) *Genesis {
 	// Override the default period to the user requested one

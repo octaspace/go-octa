@@ -143,7 +143,11 @@ var (
 	}
 	MainnetFlag = cli.BoolFlag{
 		Name:  "mainnet",
-		Usage: "Ethereum mainnet",
+		Usage: "OctaSpace mainnet",
+	}
+	TestnetFlag = cli.BoolFlag{
+		Name: "testnet",
+		Usage: "OctaSpace testnet",
 	}
 	GoerliFlag = cli.BoolFlag{
 		Name:  "goerli",
@@ -902,6 +906,8 @@ func setBootstrapNodes(ctx *cli.Context, cfg *p2p.Config) {
 		urls = params.GoerliBootnodes
 	case ctx.GlobalBool(KilnFlag.Name):
 		urls = params.KilnBootnodes
+	case ctx.GlobalBool(TestnetFlag.Name):
+		urls = params.OctaTestnetBootnodes
 	case cfg.BootstrapNodes != nil:
 		return // already set, don't apply defaults.
 	}
@@ -1684,6 +1690,12 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *ethconfig.Config) {
 		}
 		cfg.Genesis = core.OctaMainnetGenesisBlock()
 		SetDNSDiscoveryDefaults(cfg, params.OctaMainnetGenesisHash)
+	case ctx.GlobalBool(TestnetFlag.Name):
+		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
+			cfg.NetworkId = 800002
+		}
+		cfg.Genesis = core.DefaultOctaTestnetGenesisBlock()
+		SetDNSDiscoveryDefaults(cfg, params.OctaTestnetGenesisHash)
 	case ctx.GlobalBool(RopstenFlag.Name):
 		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
 			cfg.NetworkId = 3
@@ -1944,6 +1956,8 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 	switch {
 	case ctx.GlobalBool(MainnetFlag.Name):
 		genesis = core.DefaultGenesisBlock()
+	case ctx.GlobalBool(TestnetFlag.Name):
+		genesis = core.DefaultOctaTestnetGenesisBlock()
 	case ctx.GlobalBool(RopstenFlag.Name):
 		genesis = core.DefaultRopstenGenesisBlock()
 	case ctx.GlobalBool(SepoliaFlag.Name):

@@ -106,6 +106,9 @@ var OctaMainnetBootnodes = []string{
 	"enode://972eeb44600aa1abb4bb21e57ddf31808da7b013f92b0206e13359105e28f9b02a27d9b7d44275480ba67b9899a1f8c1491a7f026ddc6f0362a7a8862d1d67a6@178.62.175.149:38000",
 }
 
+var OctaTestnetBootnodes = []string{
+}
+
 const dnsPrefix = "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@"
 
 // KnownDNSNetwork returns the address of a public DNS-based node list for the given

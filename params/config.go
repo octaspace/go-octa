@@ -34,6 +34,7 @@ var (
 	GoerliGenesisHash	   = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
 	KilnGenesisHash		   = common.HexToHash("0x51c7fe41be669f69c45c33a56982cbde405313342d9e2b00d7c91a7b284dd4f8")
 	OctaMainnetGenesisHash = common.HexToHash("0x4328489cccd9b8a33d4c5a63e813d883863e1ae1389a945b28b49d650f9227e9")
+	OctaTestnetGenesisHash = common.HexToHash("0x14c574f22553f5c076546a073bf22698091edce529b8b13a9a4ce0b1a284befc")
 )
 
 // TrustedCheckpoints associates each known checkpoint with the genesis hash of
@@ -280,6 +281,34 @@ var (
 		MahasimBlock:		 big.NewInt(3_000_000),
 		Ethash:              new(EthashConfig),
 	}
+
+    OctaTestnetChainConfig = &ChainConfig{
+        ChainID:             big.NewInt(800002),
+        HomesteadBlock:      big.NewInt(0),
+        DAOForkBlock:        nil,
+        DAOForkSupport:      false,
+        EIP150Block:         big.NewInt(0),
+        EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+        EIP155Block:         big.NewInt(0),
+        EIP158Block:         big.NewInt(0),
+        ByzantiumBlock:      big.NewInt(0),
+        ConstantinopleBlock: big.NewInt(0),
+        PetersburgBlock:     big.NewInt(0),
+        IstanbulBlock:       big.NewInt(0),
+        MuirGlacierBlock:    big.NewInt(0),
+        BerlinBlock:         big.NewInt(0),
+        LondonBlock:         nil,
+        ArrowGlacierBlock:   nil,
+        OctaBlock:           big.NewInt(1),
+        ArcturusBlock:       big.NewInt(20),
+        OldenburgBlock:      big.NewInt(30),
+        ZagamiBlock:         big.NewInt(40),
+        SpringwaterBlock:    big.NewInt(50),
+        PolarisBlock:        big.NewInt(60),
+        MahasimBlock:        big.NewInt(70),
+        Ethash:              new(EthashConfig),
+    }
+
 
 	// AllEthashProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Ethash consensus.
