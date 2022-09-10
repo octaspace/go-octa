@@ -1688,7 +1688,7 @@ func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *ethconfig.Config) {
 		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
 			cfg.NetworkId = 800001
 		}
-		cfg.Genesis = core.OctaMainnetGenesisBlock()
+		cfg.Genesis = core.DefaultOctaMainnetGenesisBlock()
 		SetDNSDiscoveryDefaults(cfg, params.OctaMainnetGenesisHash)
 	case ctx.GlobalBool(TestnetFlag.Name):
 		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
@@ -1955,7 +1955,7 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 	var genesis *core.Genesis
 	switch {
 	case ctx.GlobalBool(MainnetFlag.Name):
-		genesis = core.DefaultGenesisBlock()
+		genesis = core.DefaultOctaMainnetGenesisBlock()
 	case ctx.GlobalBool(TestnetFlag.Name):
 		genesis = core.DefaultOctaTestnetGenesisBlock()
 	case ctx.GlobalBool(RopstenFlag.Name):

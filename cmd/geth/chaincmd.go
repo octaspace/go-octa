@@ -225,7 +225,7 @@ func dumpGenesis(ctx *cli.Context) error {
 	// TODO(rjl493456442) support loading from the custom datadir
 	genesis := utils.MakeGenesis(ctx)
 	if genesis == nil {
-		genesis = core.DefaultGenesisBlock()
+		genesis = core.DefaultOctaMainnetGenesisBlock()
 	}
 	if err := json.NewEncoder(os.Stdout).Encode(genesis); err != nil {
 		utils.Fatalf("could not encode genesis")

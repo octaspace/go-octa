@@ -242,7 +242,7 @@ func SetupGenesisBlockWithOverride(db ethdb.Database, genesis *Genesis, override
 	if (stored == common.Hash{}) {
 		if genesis == nil {
 			log.Info("Writing default main-net genesis block")
-			genesis = OctaMainnetGenesisBlock()
+			genesis = DefaultOctaMainnetGenesisBlock()
 		} else {
 			log.Info("Writing custom genesis block")
 		}
@@ -505,7 +505,7 @@ func DefaultKilnGenesisBlock() *Genesis {
 	return g
 }
 
-func OctaMainnetGenesisBlock() *Genesis {
+func DefaultOctaMainnetGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.OctaMainnetChainConfig,
 		ExtraData:  hexutil.MustDecode("0x4f4354415350414345494e4954"),
