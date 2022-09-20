@@ -273,7 +273,7 @@ var (
 		LondonBlock:         nil,
 		ArrowGlacierBlock:   nil,
 		OctaBlock:           big.NewInt(1),
-		ArcturusBlock:		 big.NewInt(400_000),
+		ArcturusBlock:		 big.NewInt(650_000),
 		OldenburgBlock:		 big.NewInt(1_000_000),
 		ZagamiBlock:		 big.NewInt(1_500_000),
 		SpringwaterBlock:	 big.NewInt(2_000_000),
