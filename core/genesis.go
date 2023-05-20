@@ -522,10 +522,10 @@ func DefaultOctaTestnetGenesisBlock() *Genesis {
         Config:     params.OctaTestnetChainConfig,
         ExtraData:  hexutil.MustDecode("0x4f4354415350414345494e4954"),
         GasLimit:   10400000,
-        Difficulty: big.NewInt(524288),
+        Difficulty: big.NewInt(1),
         Timestamp:  1654041600, // June 1, 2022, 00:00:00
         Nonce:      0,
-        Alloc:      nil,
+        Alloc:      decodePrealloc(octaTestnetAllocData),
     }
 }
 
