@@ -110,7 +110,7 @@ var OctaMainnetBootnodes = []string{
 }
 
 var OctaTestnetBootnodes = []string{
-	"enode://728ca4a81b02d9aff190fbba7953af1725b3321e9b01e7b2797eb41e4e8989a9142a75d8b82b500c47e9eaca9afada35a5cedccaee56e9c8e157b8e5dfcfa628@198.244.188.133:38000",
+	"enode://728ca4a81b02d9aff190fbba7953af1725b3321e9b01e7b2797eb41e4e8989a9142a75d8b82b500c47e9eaca9afada35a5cedccaee56e9c8e157b8e5dfcfa628@109.108.71.174:38000",
 }
 
 const dnsPrefix = "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@"
