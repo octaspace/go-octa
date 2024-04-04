@@ -29,10 +29,10 @@ import (
 var (
 	MainnetGenesisHash     = common.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
 	RopstenGenesisHash     = common.HexToHash("0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d")
-	SepoliaGenesisHash	   = common.HexToHash("0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9")
+	SepoliaGenesisHash     = common.HexToHash("0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9")
 	RinkebyGenesisHash     = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
-	GoerliGenesisHash	   = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
-	KilnGenesisHash		   = common.HexToHash("0x51c7fe41be669f69c45c33a56982cbde405313342d9e2b00d7c91a7b284dd4f8")
+	GoerliGenesisHash      = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
+	KilnGenesisHash        = common.HexToHash("0x51c7fe41be669f69c45c33a56982cbde405313342d9e2b00d7c91a7b284dd4f8")
 	OctaMainnetGenesisHash = common.HexToHash("0x4328489cccd9b8a33d4c5a63e813d883863e1ae1389a945b28b49d650f9227e9")
 	OctaTestnetGenesisHash = common.HexToHash("0x14c574f22553f5c076546a073bf22698091edce529b8b13a9a4ce0b1a284befc")
 )
@@ -273,58 +273,66 @@ var (
 		LondonBlock:         nil,
 		ArrowGlacierBlock:   nil,
 		OctaBlock:           big.NewInt(1),
-		ArcturusBlock:		 big.NewInt(650_000),
-		OldenburgBlock:		 big.NewInt(1_000_000),
-		ZagamiBlock:		 big.NewInt(1_500_000),
-		SpringwaterBlock:	 big.NewInt(2_000_000),
-		PolarisBlock:		 big.NewInt(2_500_000),
-		MahasimBlock:		 big.NewInt(3_000_000),
+		ArcturusBlock:       big.NewInt(650_000),
+		OldenburgBlock:      big.NewInt(1_000_000),
+		ZagamiBlock:         big.NewInt(1_500_000),
+		SpringwaterBlock:    big.NewInt(2_000_000),
+		PolarisBlock:        big.NewInt(2_500_000),
+		MahasimBlock:        big.NewInt(3_000_000),
+		DneprBlock:          big.NewInt(4_500_000),
+		BlackeyeBlock:       big.NewInt(6_000_000),
+		VegaBlock:           big.NewInt(8_000_000),
+		TriangulumBlock:     big.NewInt(10_000_000),
 		Ethash:              new(EthashConfig),
 	}
 
-    OctaTestnetChainConfig = &ChainConfig{
-        ChainID:             big.NewInt(800002),
-        HomesteadBlock:      big.NewInt(0),
-        DAOForkBlock:        nil,
-        DAOForkSupport:      false,
-        EIP150Block:         big.NewInt(0),
-        EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-        EIP155Block:         big.NewInt(0),
-        EIP158Block:         big.NewInt(0),
-        ByzantiumBlock:      big.NewInt(0),
-        ConstantinopleBlock: big.NewInt(0),
-        PetersburgBlock:     big.NewInt(0),
-        IstanbulBlock:       big.NewInt(0),
-        MuirGlacierBlock:    big.NewInt(0),
-        BerlinBlock:         big.NewInt(0),
-        LondonBlock:         nil,
-        ArrowGlacierBlock:   nil,
-        OctaBlock:           big.NewInt(1),
-        ArcturusBlock:       big.NewInt(20),
-        OldenburgBlock:      big.NewInt(30),
-        ZagamiBlock:         big.NewInt(40),
-        SpringwaterBlock:    big.NewInt(50),
-        PolarisBlock:        big.NewInt(60),
-        MahasimBlock:        big.NewInt(70),
-        Ethash:              new(EthashConfig),
-    }
-
+	OctaTestnetChainConfig = &ChainConfig{
+		ChainID:             big.NewInt(800002),
+		HomesteadBlock:      big.NewInt(0),
+		DAOForkBlock:        nil,
+		DAOForkSupport:      false,
+		EIP150Block:         big.NewInt(0),
+		EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		EIP155Block:         big.NewInt(0),
+		EIP158Block:         big.NewInt(0),
+		ByzantiumBlock:      big.NewInt(0),
+		ConstantinopleBlock: big.NewInt(0),
+		PetersburgBlock:     big.NewInt(0),
+		IstanbulBlock:       big.NewInt(0),
+		MuirGlacierBlock:    big.NewInt(0),
+		BerlinBlock:         big.NewInt(0),
+		LondonBlock:         nil,
+		ArrowGlacierBlock:   nil,
+		OctaBlock:           big.NewInt(1),
+		ArcturusBlock:       big.NewInt(20),
+		OldenburgBlock:      big.NewInt(30),
+		ZagamiBlock:         big.NewInt(40),
+		SpringwaterBlock:    big.NewInt(50),
+		PolarisBlock:        big.NewInt(60),
+		MahasimBlock:        big.NewInt(70),
+		DneprBlock:          big.NewInt(80),
+		BlackeyeBlock:       big.NewInt(90),
+		VegaBlock:           big.NewInt(100),
+		TriangulumBlock:     big.NewInt(110),
+		Ethash:              new(EthashConfig),
+	}
 
 	// AllEthashProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Ethash consensus.
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), new(EthashConfig), nil}
+	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), new(EthashConfig), nil}
 
 	// AllCliqueProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Clique consensus.
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
 
-	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), new(EthashConfig), nil}
+	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
+
+	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), new(EthashConfig), nil}
 	TestRules       = TestChainConfig.Rules(new(big.Int), false)
 )
 
@@ -406,12 +414,16 @@ type ChainConfig struct {
 	ArrowGlacierBlock   *big.Int `json:"arrowGlacierBlock,omitempty"`   // Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated)
 	MergeForkBlock      *big.Int `json:"mergeForkBlock,omitempty"`      // EIP-3675 (TheMerge) switch block (nil = no fork, 0 = already in merge proceedings)
 	OctaBlock           *big.Int `json:"OctaBlock,omitempty"`
-	ArcturusBlock		*big.Int `json:"arcturusBlock,omitempty"`
-	OldenburgBlock		*big.Int `json:"oldenburgBlock,omitempty"`
-	ZagamiBlock			*big.Int `json:"zagamiBlock,omitempty"`
-	SpringwaterBlock	*big.Int `json:"springwaterBlock,omitempty"`
-	PolarisBlock		*big.Int `json:"polarisBlock,omitempty"`
-	MahasimBlock		*big.Int `json:"mahasimBlock,omitempty"`
+	ArcturusBlock       *big.Int `json:"arcturusBlock,omitempty"`
+	OldenburgBlock      *big.Int `json:"oldenburgBlock,omitempty"`
+	ZagamiBlock         *big.Int `json:"zagamiBlock,omitempty"`
+	SpringwaterBlock    *big.Int `json:"springwaterBlock,omitempty"`
+	PolarisBlock        *big.Int `json:"polarisBlock,omitempty"`
+	MahasimBlock        *big.Int `json:"mahasimBlock,omitempty"`
+	DneprBlock          *big.Int `json:"dneprBlock,omitempty"`
+	BlackeyeBlock       *big.Int `json:"blackeyeBlock,omitempty"`
+	VegaBlock           *big.Int `json:"vegaBlock,omitempty"`
+	TriangulumBlock     *big.Int `json:"triangulumBlock,omitempty"`
 
 	// TerminalTotalDifficulty is the amount of total difficulty reached by
 	// the network that triggers the consensus upgrade.
@@ -452,7 +464,7 @@ func (c *ChainConfig) String() string {
 	default:
 		engine = "unknown"
 	}
-	return fmt.Sprintf("{ChainID: %v Homestead: %v DAO: %v DAOSupport: %v EIP150: %v EIP155: %v EIP158: %v Byzantium: %v Constantinople: %v Petersburg: %v Istanbul: %v, Muir Glacier: %v, Berlin: %v, Octa: %v, Arcturus: %v, Oldenburg: %v, Zagami: %v, Springwater: %v, Polaris: %v, Mahasim: %v, Engine: %v}",
+	return fmt.Sprintf("{ChainID: %v Homestead: %v DAO: %v DAOSupport: %v EIP150: %v EIP155: %v EIP158: %v Byzantium: %v Constantinople: %v Petersburg: %v Istanbul: %v, Muir Glacier: %v, Berlin: %v, Octa: %v, Arcturus: %v, Oldenburg: %v, Zagami: %v, Springwater: %v, Polaris: %v, Mahasim: %v, Dnepr: %v, Blackeye: %v, Vega: %v, Triangulum: %v, Engine: %v}",
 		c.ChainID,
 		c.HomesteadBlock,
 		c.DAOForkBlock,
@@ -473,6 +485,10 @@ func (c *ChainConfig) String() string {
 		c.SpringwaterBlock,
 		c.PolarisBlock,
 		c.MahasimBlock,
+		c.DneprBlock,
+		c.BlackeyeBlock,
+		c.VegaBlock,
+		c.TriangulumBlock,
 		engine,
 	)
 }
@@ -557,27 +573,43 @@ func (c *ChainConfig) IsOcta(num *big.Int) bool {
 }
 
 func (c *ChainConfig) IsArcturus(num *big.Int) bool {
-    return isForked(c.ArcturusBlock, num)
+	return isForked(c.ArcturusBlock, num)
 }
 
 func (c *ChainConfig) IsOldenburg(num *big.Int) bool {
-    return isForked(c.OldenburgBlock, num)
+	return isForked(c.OldenburgBlock, num)
 }
 
 func (c *ChainConfig) IsZagami(num *big.Int) bool {
-    return isForked(c.ZagamiBlock, num)
+	return isForked(c.ZagamiBlock, num)
 }
 
 func (c *ChainConfig) IsSpringwater(num *big.Int) bool {
-    return isForked(c.SpringwaterBlock, num)
+	return isForked(c.SpringwaterBlock, num)
 }
 
 func (c *ChainConfig) IsPolaris(num *big.Int) bool {
-    return isForked(c.PolarisBlock, num)
+	return isForked(c.PolarisBlock, num)
 }
 
 func (c *ChainConfig) IsMahasim(num *big.Int) bool {
-    return isForked(c.MahasimBlock, num)
+	return isForked(c.MahasimBlock, num)
+}
+
+func (c *ChainConfig) IsDnepr(num *big.Int) bool {
+	return isForked(c.DneprBlock, num)
+}
+
+func (c *ChainConfig) IsBlackeye(num *big.Int) bool {
+	return isForked(c.BlackeyeBlock, num)
+}
+
+func (c *ChainConfig) IsVega(num *big.Int) bool {
+	return isForked(c.VegaBlock, num)
+}
+
+func (c *ChainConfig) IsTriangulum(num *big.Int) bool {
+	return isForked(c.TriangulumBlock, num)
 }
 
 // CheckCompatible checks whether scheduled fork transitions have been imported
@@ -619,13 +651,17 @@ func (c *ChainConfig) CheckConfigForkOrder() error {
 		{name: "istanbulBlock", block: c.IstanbulBlock},
 		{name: "muirGlacierBlock", block: c.MuirGlacierBlock, optional: true},
 		{name: "berlinBlock", block: c.BerlinBlock},
-		{name: "octaBlock", block: c.OctaBlock },
-		{name: "arcturusBlock", block: c.ArcturusBlock },
-		{name: "oldenburgBlock", block: c.OldenburgBlock },
-		{name: "zagamiBlock", block: c.ZagamiBlock },
-		{name: "springwaterBlock", block: c.SpringwaterBlock },
-		{name: "polarisBlock", block: c.PolarisBlock },
-		{name: "mahasimBlock", block: c.MahasimBlock },
+		{name: "octaBlock", block: c.OctaBlock},
+		{name: "arcturusBlock", block: c.ArcturusBlock},
+		{name: "oldenburgBlock", block: c.OldenburgBlock},
+		{name: "zagamiBlock", block: c.ZagamiBlock},
+		{name: "springwaterBlock", block: c.SpringwaterBlock},
+		{name: "polarisBlock", block: c.PolarisBlock},
+		{name: "mahasimBlock", block: c.MahasimBlock},
+		{name: "dneprBlock", block: c.DneprBlock},
+		{name: "blackeyeBlock", block: c.BlackeyeBlock},
+		{name: "vegaBlock", block: c.VegaBlock},
+		{name: "triangulumBlock", block: c.TriangulumBlock},
 		{name: "londonBlock", block: c.LondonBlock},
 		{name: "arrowGlacierBlock", block: c.ArrowGlacierBlock, optional: true},
 		{name: "mergeStartBlock", block: c.MergeForkBlock, optional: true},
@@ -698,24 +734,36 @@ func (c *ChainConfig) checkCompatible(newcfg *ChainConfig, head *big.Int) *Confi
 	if isForkIncompatible(c.OctaBlock, newcfg.OctaBlock, head) {
 		return newCompatError("Octa fork block", c.OctaBlock, newcfg.OctaBlock)
 	}
-    if isForkIncompatible(c.ArcturusBlock, newcfg.ArcturusBlock, head) {
-        return newCompatError("Arcturus fork block", c.ArcturusBlock, newcfg.ArcturusBlock)
-    }
-    if isForkIncompatible(c.OldenburgBlock, newcfg.OldenburgBlock, head) {
-        return newCompatError("Oldenburg fork block", c.OldenburgBlock, newcfg.OldenburgBlock)
-    }
-    if isForkIncompatible(c.ZagamiBlock, newcfg.ZagamiBlock, head) {
-        return newCompatError("Zagami fork block", c.ZagamiBlock, newcfg.ZagamiBlock)
-    }
-    if isForkIncompatible(c.SpringwaterBlock, newcfg.SpringwaterBlock, head) {
-        return newCompatError("Springwater fork block", c.SpringwaterBlock, newcfg.SpringwaterBlock)
-    }
-    if isForkIncompatible(c.PolarisBlock, newcfg.PolarisBlock, head) {
-        return newCompatError("Polaris fork block", c.PolarisBlock, newcfg.PolarisBlock)
-    }
-    if isForkIncompatible(c.MahasimBlock, newcfg.MahasimBlock, head) {
-        return newCompatError("Mahasim fork block", c.MahasimBlock, newcfg.MahasimBlock)
-    }
+	if isForkIncompatible(c.ArcturusBlock, newcfg.ArcturusBlock, head) {
+		return newCompatError("Arcturus fork block", c.ArcturusBlock, newcfg.ArcturusBlock)
+	}
+	if isForkIncompatible(c.OldenburgBlock, newcfg.OldenburgBlock, head) {
+		return newCompatError("Oldenburg fork block", c.OldenburgBlock, newcfg.OldenburgBlock)
+	}
+	if isForkIncompatible(c.ZagamiBlock, newcfg.ZagamiBlock, head) {
+		return newCompatError("Zagami fork block", c.ZagamiBlock, newcfg.ZagamiBlock)
+	}
+	if isForkIncompatible(c.SpringwaterBlock, newcfg.SpringwaterBlock, head) {
+		return newCompatError("Springwater fork block", c.SpringwaterBlock, newcfg.SpringwaterBlock)
+	}
+	if isForkIncompatible(c.PolarisBlock, newcfg.PolarisBlock, head) {
+		return newCompatError("Polaris fork block", c.PolarisBlock, newcfg.PolarisBlock)
+	}
+	if isForkIncompatible(c.MahasimBlock, newcfg.MahasimBlock, head) {
+		return newCompatError("Mahasim fork block", c.MahasimBlock, newcfg.MahasimBlock)
+	}
+	if isForkIncompatible(c.DneprBlock, newcfg.DneprBlock, head) {
+		return newCompatError("Dnepr fork block", c.DneprBlock, newcfg.DneprBlock)
+	}
+	if isForkIncompatible(c.BlackeyeBlock, newcfg.BlackeyeBlock, head) {
+		return newCompatError("Blackeye fork block", c.BlackeyeBlock, newcfg.BlackeyeBlock)
+	}
+	if isForkIncompatible(c.VegaBlock, newcfg.VegaBlock, head) {
+		return newCompatError("Vega fork block", c.VegaBlock, newcfg.VegaBlock)
+	}
+	if isForkIncompatible(c.TriangulumBlock, newcfg.TriangulumBlock, head) {
+		return newCompatError("Triangulum fork block", c.TriangulumBlock, newcfg.TriangulumBlock)
+	}
 	if isForkIncompatible(c.LondonBlock, newcfg.LondonBlock, head) {
 		return newCompatError("London fork block", c.LondonBlock, newcfg.LondonBlock)
 	}
@@ -793,12 +841,16 @@ type Rules struct {
 	IsHomestead, IsEIP150, IsEIP155, IsEIP158               bool
 	IsByzantium, IsConstantinople, IsPetersburg, IsIstanbul bool
 	IsBerlin, IsOcta                                        bool
-	IsArcturus												bool
-	IsOldenburg												bool
-	IsZagami												bool
-	IsSpringwater											bool
-	IsPolaris												bool
-	IsMahasim												bool
+	IsArcturus                                              bool
+	IsOldenburg                                             bool
+	IsZagami                                                bool
+	IsSpringwater                                           bool
+	IsPolaris                                               bool
+	IsMahasim                                               bool
+	IsDnepr                                                 bool
+	IsBlackeye                                              bool
+	IsVega                                                  bool
+	IsTriangulum                                            bool
 	IsLondon, IsMerge                                       bool
 }
 
@@ -820,12 +872,16 @@ func (c *ChainConfig) Rules(num *big.Int, isMerge bool) Rules {
 		IsIstanbul:       c.IsIstanbul(num),
 		IsBerlin:         c.IsBerlin(num),
 		IsOcta:           c.IsOcta(num),
-		IsArcturus:		  c.IsArcturus(num),
+		IsArcturus:       c.IsArcturus(num),
 		IsOldenburg:      c.IsOldenburg(num),
 		IsZagami:         c.IsZagami(num),
 		IsSpringwater:    c.IsSpringwater(num),
 		IsPolaris:        c.IsPolaris(num),
-		IsMahasim:		  c.IsMahasim(num),
+		IsMahasim:        c.IsMahasim(num),
+		IsDnepr:          c.IsDnepr(num),
+		IsBlackeye:       c.IsBlackeye(num),
+		IsVega:           c.IsVega(num),
+		IsTriangulum:     c.IsTriangulum(num),
 		IsLondon:         c.IsLondon(num),
 		IsMerge:          isMerge,
 	}
